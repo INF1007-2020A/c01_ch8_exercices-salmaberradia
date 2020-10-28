@@ -29,7 +29,26 @@ def triple_space(nom_fichier_1, nom_fichier_2):
     with open(nom_fichier_1, "w") as data:
         data.write(new_text)
 
+def grade(grades_file, target_file):
+    correspondances = {20: 'F', 40: 'D', 50: 'C', 70: 'B', 85: 'A'}
+
+    with open(grades_file, 'r') as note_data, open(target_file,'w') as target:
+        for line in note_data.readlines():
+            note = float(line)
+            for grade in correspondances.keys():
+                if grade == 85 and note > grade:
+                    target.write('A*')
+                if note <= grade:
+                    target.write(correspondances[grade])
+                    break       
+
+def nombre_croissant(fichier):
+    with open(fichier, 'r') as texte:
+        return sorted([int(word) for word in texte.read().split() if word.isdigit()])
+
+
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
 
     triple_space('lol.txt', 'llo.txt')    
+    grade('grades.txt', 'resultat.txt')
