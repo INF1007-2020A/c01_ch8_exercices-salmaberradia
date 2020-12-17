@@ -50,5 +50,4 @@ def nombre_croissant(fichier):
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
 
-    triple_space('lol.txt', 'llo.txt')    
-    grade('grades.txt', 'resultat.txt')
+    print(nombre_croissant('exemple.txt')) 
